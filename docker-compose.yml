@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  palworld-server:
+    image: thijsvanloef/palworld-server-docker:latest
+    container_name: palworld-server
+    restart: unless-stopped
+    ports:
+      - "8211:8211/udp"  # Game port
+      - "27015:27015/udp" # Steam port
+    volumes:
+      - ./palworld-data:/palworld-data
+    environment:
+      # Basic server configurations
+      - PUID=1000
+      - PGID=1000
+      - PORT=8211
+      - PLAYERS=16
+      - SERVER_PASSWORD=server_password_here
+      - SERVER_NAME=server_name_here
+      - ADMIN_PASSWORD=admin_password_here
+      - MULTITHREADING=true
+      - RCON_ENABLED=true
+      - RCON_PORT=25575
+      
+      # Performance and save configurations
+      - AUTO_SAVE=true
+      - AUTO_SAVE_INTERVAL=60
+      - BACKUP_ENABLED=true
+      - BACKUP_INTERVAL=60
+      - BACKUP_KEEP_COUNT=4
+      
+      # Game configurations
+      - DIFFICULTY=Normal
+      - DAY_TIME_SPEED_RATE=1.0
+      - NIGHT_TIME_SPEED_RATE=1.0
+      - EXP_RATE=1.0
+      - PAL_CAPTURE_RATE=1.0
+      - PAL_SPAWN_NUM_RATE=1.0
+      - PAL_DAMAGE_RATE_ATTACK=1.0
+      - PAL_DAMAGE_RATE_DEFENSE=1.0
+      
+      # Incubation configurations
+      - EGG_HATCHING_SPEED_RATE=2.0
+      - EGG_HATCHING_REQUIRED_TIME=1.0
+      
+      # Food and needs configurations
+      - FOOD_DECREASE_RATE=1.0
+      - PAL_STOMACH_DECREASE_RATE=1.0
+      - PAL_STAMINA_DECREASE_RATE=1.0
+      - PAL_HP_DECREASE_RATE=1.0
+      - PAL_SANITY_DECREASE_RATE=1.0
+      
+      # Building and resources configurations
+      - BUILD_OBJECT_DAMAGE_RATE=1.0
+      - BUILD_OBJECT_DETERIORATION_DAMAGE_RATE=1.0
+      - COLLECTION_DROP_RATE=1.0
+      - COLLECTION_OBJECT_HP_RATE=1.0
+      - COLLECTION_OBJECT_RESPAWN_SPEED_RATE=1.0
+      
+      # PvP configurations
+      - ENABLE_PVP=true
+      - ENABLE_PLAYER_TO_PLAYER_DAMAGE=true
+      - ENABLE_FRIENDLY_FIRE=false
+      
+      # Death and penalty configurations
+      - DEATH_PENALTY=All
+      - ENABLE_INVADER_ENEMY=true
+      - ACTIVE_UNUSED_BOSS=true
+      
+      # Server configurations
+      - SERVER_DESCRIPTION=Palworld con lo tiguere
+      - SERVER_REPLICATE_PAWN_CULL_DISTANCE=10000
+      - SUPPLY_DROP_SPAN=60
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535 
