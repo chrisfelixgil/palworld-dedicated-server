@@ -1,7 +1,7 @@
 # 🎮 Palworld Dedicated Server Docker Setup
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/thijsvanloef/palworld-server-docker?style=for-the-badge)](https://hub.docker.com/r/thijsvanloef/palworld-server-docker)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/palworld-server?style=for-the-badge)](https://github.com/yourusername/palworld-server)
+[![GitHub Stars](https://img.shields.io/github/stars/chrisfelixgil/palworld-dedicated-server?style=for-the-badge)](https://github.com/chrisfelixgil/palworld-dedicated-server)
 
 A powerful and easy-to-deploy Docker setup for running your own Palworld dedicated server. Perfect for hosting your own gaming community or playing with friends!
 
@@ -33,8 +33,8 @@ palworld-server/
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/palworld-server.git
-cd palworld-server
+git clone https://github.com/chrisfelixgil/palworld-dedicated-server.git
+cd palworld-dedicated-server
 ```
 
 2. Configure your server:
@@ -57,9 +57,9 @@ docker-compose logs -f
 ## 🔧 Configuration Options
 
 The server comes with optimized settings for:
-- 🥚 Egg hatching
+- 🥚 Egg hatching (2x faster by default)
 - 🍖 Food consumption
-- ⚔️ PvP settings
+- ⚔️ PvP settings (friendly fire disabled)
 - 🏗️ Building mechanics
 - 💀 Death penalties
 - And much more!
@@ -70,11 +70,11 @@ All game data is stored in the `palworld-data/` directory:
 - Game progress
 - World saves
 - Server configurations
-- Automatic backups
+- Automatic backups (4 backups kept)
 
 ## 🔒 Security
 
-- Automatic backups
+- Automatic backups every 60 minutes
 - Secure password management
 - Protected admin access
 - Regular updates
@@ -109,7 +109,7 @@ If you find this project helpful, please:
 
 ## 📞 Need Help?
 
-- Open an issue
+- Open an [issue](https://github.com/chrisfelixgil/palworld-dedicated-server/issues)
 - Join our Discord community
 - Check the FAQ section
 
