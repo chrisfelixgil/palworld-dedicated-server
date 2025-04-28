@@ -9,7 +9,8 @@ services:
       - "8211:8211/udp"  # Game port
       - "27015:27015/udp" # Steam port
     volumes:
-      - ./palworld-data:/palworld-data
+      - ./palworld-server/palworld-data:/palworld-data
+      - ./palworld-server:/palworld
     environment:
       # Basic server configurations
       - PUID=1000
@@ -41,8 +42,9 @@ services:
       - PAL_DAMAGE_RATE_DEFENSE=1.0
       
       # Incubation configurations
-      - EGG_HATCHING_SPEED_RATE=2.0
-      - EGG_HATCHING_REQUIRED_TIME=1.0
+      - EGG_HATCHING_SPEED_RATE=999999.0
+      - EGG_HATCHING_REQUIRED_TIME=0.000001
+      - PAL_EGG_DEFAULT_HATCHING_TIME=0.000001
       
       # Food and needs configurations
       - FOOD_DECREASE_RATE=1.0

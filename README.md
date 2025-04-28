@@ -13,6 +13,8 @@ A powerful and easy-to-deploy Docker setup for running your own Palworld dedicat
 - 🛡️ Secure configuration
 - 🎮 Optimized for gaming performance
 - 📦 All-in-one Docker solution
+- ⚡ Instant egg hatching
+- 🔄 Cross-platform support
 
 ## 🏗️ Structure
 
@@ -43,6 +45,9 @@ cd palworld-dedicated-server
      - `ADMIN_PASSWORD`: Admin password
      - `SERVER_NAME`: Your server name
      - `PLAYERS`: Max number of players
+     - `EGG_HATCHING_SPEED_RATE`: Egg hatching speed (default: 999999.0)
+     - `EGG_HATCHING_REQUIRED_TIME`: Required time for hatching (default: 0.000001)
+     - `PAL_EGG_DEFAULT_HATCHING_TIME`: Default hatching time (default: 0.000001)
 
 3. Start the server:
 ```bash
@@ -57,12 +62,31 @@ docker-compose logs -f
 ## 🔧 Configuration Options
 
 The server comes with optimized settings for:
-- 🥚 Egg hatching (2x faster by default)
+- 🥚 Instant egg hatching (configured for immediate hatching)
 - 🍖 Food consumption
 - ⚔️ PvP settings (friendly fire disabled)
 - 🏗️ Building mechanics
 - 💀 Death penalties
 - And much more!
+
+### Advanced Configuration
+
+You can customize various game settings in the `docker-compose.yml` file:
+
+```yaml
+# Game configurations
+- DIFFICULTY=Normal
+- DAY_TIME_SPEED_RATE=1.0
+- NIGHT_TIME_SPEED_RATE=1.0
+- EXP_RATE=1.0
+- PAL_CAPTURE_RATE=1.0
+- PAL_SPAWN_NUM_RATE=1.0
+
+# Incubation configurations
+- EGG_HATCHING_SPEED_RATE=999999.0
+- EGG_HATCHING_REQUIRED_TIME=0.000001
+- PAL_EGG_DEFAULT_HATCHING_TIME=0.000001
+```
 
 ## 💾 Data Persistence
 
@@ -78,6 +102,7 @@ All game data is stored in the `palworld-data/` directory:
 - Secure password management
 - Protected admin access
 - Regular updates
+- RCON enabled for remote administration
 
 ## 🤝 Contributing
 
